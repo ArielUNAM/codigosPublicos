@@ -122,3 +122,31 @@ class p(object):
         """True si la lista esta vacia, False en caso contrario"""
         return(True if not self.head else False)
         
+class c(object):
+
+    def __init__(self):
+        """Crea el objeto cola"""
+        self.cola = None
+
+    def push(self,elemento):
+        """Agrega un elemento a la cola"""
+        if self.isEmpty():
+            self.cola = Nodo(elemento)
+        else:
+            tmp = self.cola
+            while(tmp.nx != None):
+                tmp = tmp.nx
+            tmp.nx = Nodo(elemento)
+
+    def pop(self):
+        """Obtiene el primer elemento y lo elimina"""
+        if self.isEmpty():
+            return False
+        else:
+            aux = self.cola
+            self.cola = self.cola.nx
+            return(aux)
+    
+    def isEmpty(self):
+        """Determina si la cola esta vacia"""
+        return(True if not self.cola else False)
